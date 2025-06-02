@@ -129,7 +129,7 @@ const About = () => {
       </section>
 
       {/* Advantages Section */}
-      <section className="section" style={{ background: '#f8fafc' }}>
+      <section className="section about-advantages-section" style={{ background: '#f8fafc' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 style={{ color: '#1f2937' }}>The Pure Digits Advantage</h2>

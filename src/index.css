@@ -1095,6 +1095,31 @@ section[style*="background: #f8fafc"] .features-grid .feature-card::before {
   box-shadow: 0 4px 12px rgba(167, 139, 250, 0.2) !important;
 }
 
+/* ABOUT PAGE - Light background advantages section */
+.about-advantages-section .feature-card {
+  background: #ffffff !important;
+  border: 2px solid #e5e7eb !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.about-advantages-section .feature-card h3 {
+  color: #111827 !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+.about-advantages-section .feature-card p {
+  color: #374151 !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+.about-advantages-section .feature-card:hover {
+  background: #f9fafb !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
 /* Hero image - always white text on glass background */
 .hero-image h3 {
   color: #ffffff !important;
