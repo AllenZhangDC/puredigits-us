@@ -1,6 +1,20 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const Home = () => {
+  const [displayText, setDisplayText] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const fullText = "Every SME Deserves Their Own Custom AI-CRM System"
+
+  useEffect(() => {
+    if (currentIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + fullText[currentIndex])
+        setCurrentIndex(prev => prev + 1)
+      }, 50)
+      return () => clearTimeout(timeout)
+    }
+  }, [currentIndex, fullText])
   const features = [
     {
       title: "Cost Effective",
@@ -42,14 +56,24 @@ const Home = () => {
     <div>
       {/* Hero Section */}
       <section className="hero">
+        {/* Animated Particles Background */}
+        <div className="particles-container">
+          {[...Array(20)].map((_, i) => (
+            <div key={i} className={`particle particle-${i % 4}`}></div>
+          ))}
+        </div>
+
         <div className="container">
           <div className="hero-content">
             <div className="hero-text">
               <h1>
-                Every SME Deserves Their Own <span className="highlight">Custom AI-CRM System</span>
+                <span className="typewriter">
+                  {displayText}
+                  <span className="cursor">|</span>
+                </span>
               </h1>
               <p>
-                Tailored AI-CRM solutions with 50% cost savings and 5x faster development, bringing enterprise-level intelligent systems within reach of every small and medium business.
+                Tailored AI-CRM solutions with 50% cost savings and 5x faster development, bringing enterprise-level intelligent systems within reach of every small and medium business (SME).
               </p>
               <div className="hero-buttons">
                 <Link to="/contact" className="btn btn-primary">
@@ -61,25 +85,32 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="hero-image">
-              <h3 style={{ color: '#ffffff', fontWeight: '700' }}>Success Stories</h3>
-              <div style={{ marginTop: '2rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-                  <div style={{ width: '40px', height: '40px', background: '#10b981', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem', color: 'white' }}>✓</div>
+            <div className="hero-image floating">
+              {/* Data Flow Animation */}
+              <div className="data-flow">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className={`data-stream stream-${i}`}></div>
+                ))}
+              </div>
+
+              <h3 style={{ color: '#ffffff', fontWeight: '700', position: 'relative', zIndex: 2 }}>Success Stories</h3>
+              <div style={{ marginTop: '2rem', position: 'relative', zIndex: 2 }}>
+                <div className="success-item" style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div className="success-icon pulse-green" style={{ width: '40px', height: '40px', background: '#10b981', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem', color: 'white' }}>✓</div>
                   <div>
                     <h4 style={{ margin: 0, color: '#ffffff', fontWeight: '600' }}>Printing Company</h4>
                     <p style={{ margin: 0, fontSize: '14px', color: '#e2e8f0' }}>CRM/ERP Implementation Complete</p>
                   </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-                  <div style={{ width: '40px', height: '40px', background: '#3b82f6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem', color: 'white' }}>✓</div>
+                <div className="success-item" style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div className="success-icon pulse-blue" style={{ width: '40px', height: '40px', background: '#3b82f6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem', color: 'white' }}>✓</div>
                   <div>
                     <h4 style={{ margin: 0, color: '#ffffff', fontWeight: '600' }}>Clothing Manufacturer</h4>
                     <p style={{ margin: 0, fontSize: '14px', color: '#e2e8f0' }}>Custom CRM System Deployed</p>
                   </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ width: '40px', height: '40px', background: '#8b5cf6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem', color: 'white' }}>✓</div>
+                <div className="success-item" style={{ display: 'flex', alignItems: 'center' }}>
+                  <div className="success-icon pulse-purple" style={{ width: '40px', height: '40px', background: '#8b5cf6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem', color: 'white' }}>✓</div>
                   <div>
                     <h4 style={{ margin: 0, color: '#ffffff', fontWeight: '600' }}>Medical Clinic Chain</h4>
                     <p style={{ margin: 0, fontSize: '14px', color: '#e2e8f0' }}>TCM System Integration</p>
